@@ -40,8 +40,6 @@ resource "null_resource" "commands" {
     ]
   }
 
-
-
 }
 
 resource "aws_ami_from_instance" "ami" {
