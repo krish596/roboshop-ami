@@ -28,4 +28,18 @@ resource "aws_instance" "ami" {
   }
 }
 
+resource "null_resource" "commands" {
+  provisioner "remote-exec" {
+    connection {
+      user = "root"
+      password = "DevOps321"
+      host = aws_instance.ami.private_ip
+    }
+
+    inline = [
+      "labauto ansible"
+    ]
+  }
+
+}
 
