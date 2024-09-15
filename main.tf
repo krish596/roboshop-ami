@@ -43,3 +43,8 @@ resource "null_resource" "commands" {
 
 }
 
+resource "aws_ami_from_instance" "ami" {
+  depends_on = [null_resource.commands]
+  name               = "roboshop-ami-v"
+  source_instance_id = aws_instance.ami.id
+}
